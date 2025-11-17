@@ -1,6 +1,7 @@
 GitLab EE 15.11.13 setup and test of an GitLab API solution for 1. granting roles to users 2. counting the issues and MRs for a sepcific year.
 
 ### 1. Start GitLab playground and populate it (or create projects)
+Clone this repo, `cd gitlabapi` then setup the local lab:
 
 ```bash
 ./setup_gitlab.sh
