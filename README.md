@@ -1,4 +1,4 @@
-GitLab EE 15.11.13 workflow to setup and test an GitLab API solution.
+GitLab EE 15.11.13 setup and test of an GitLab API solution for 1. granting roles to users 2. counting the issues and MRs for a sepcific year.
 
 ### 1. Start GitLab playground and populate it (or create projects)
 
@@ -11,8 +11,6 @@ This will:
 - Expose it on `http://localhost`
 - Wait for initialization (10-15 minutes)
 - **Automatically retrieve and display the root password** when GitLab is ready
-
-**Note**: The script will monitor logs and notify you when GitLab is ready. The root password will be displayed automatically once GitLab finishes initializing.
 
 1. Open GitLab in your browser: http:/localhost"
 2. Login as root (use password shown by './setup_gitlab.sh' or run docker exec -it gitlab bash -c 'cat /etc/gitlab/initial_root_password' | grep -i password)"
@@ -56,9 +54,9 @@ docker run -it -e ACCESS_TOKEN='glpat-xxxxx' -v /tmp/gilab/gpt.json:/tmp/gpt.jso
 
 ### 2. Create API Token
 
-1. Open GitLab in your browser: http:/localhost"
+1. Open GitLab in your browser: "http:/localhost"
 2. Login as root (use password shown by './setup_gitlab.sh' or run docker exec -it gitlab bash -c 'cat /etc/gitlab/initial_root_password' | grep -i password)"
-3. Go to: $GITLAB_URL/-/profile/personal_access_tokens"
+3. Go to: http:/localhost/-/profile/personal_access_tokens"
  Or: Click your profile (top right) -> Edit Profile -> Access Tokens"
 
 4. Create and copy new token with:"
@@ -69,8 +67,7 @@ docker run -it -e ACCESS_TOKEN='glpat-xxxxx' -v /tmp/gilab/gpt.json:/tmp/gpt.jso
 5. Copy the token (it starts with 'glpat-')"
 
 Then:
-1. Open `http://localhost` in your browser
-2. Login as `root` with the password shown by `./setup_gitlab.sh`
+1. Open `http://localhost` in your browser, login as `root` 
 3. Navigate to: `http://localhost/-/profile/personal_access_tokens`
 4. Create a new token with:
    - Name: `api-token` (or any name)
@@ -156,7 +153,7 @@ docker logs gitlab -f
 - Check token hasn't expired
 
 ### access errors
-- On various machines localhost will not be available for containers on the default docker ls network, on mac/windows try http://host.docker.internal instead of http://localhost (or setup a network and ensuer all the project's containers are on it)
+- On various machines localhost will not be available  for containers on the default docker ls network (Connection refused - connect(2) for "localhost" port 80). on mac/windows try http://host.docker.internal instead of http://localhost (or setup a network and ensuer all the project's containers are on it)
 
 ### Permission errors
 
