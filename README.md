@@ -124,7 +124,6 @@ docker run --rm \
   -e GITLAB_URL=http://localhost \
   -e GITLAB_TOKEN=$GITLAB_TOKEN \
   gitlab-api get_items mr 2025 
-```
 
 #e.g docker run --rm -e GITLAB_URL='http://host.docker.internal' -e GITLAB_TOKEN='glpat-xxxxx' gitlab-api get_items issues 2025
 {
